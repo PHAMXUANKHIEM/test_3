@@ -10,7 +10,7 @@ pipeline {
 	stage('Clone Code') {
 	    steps {
 		git branch: 'main',
-		    url: 'git@github.com:PHAMXUANKHIEM/test_3.git',
+		    url: 'git@github.com:PHAMXUANKHIEM/test_3',
 		    credentialsId: 'github-ssh'
 	    }
         }

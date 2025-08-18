@@ -25,9 +25,9 @@ pipeline {
         stage('Test Docker Image') {
             steps {
                 sh """
-                    docker run --rm -d --name ${APP_NAME}-test -p 8080:80 ${DOCKER_REPO}:${BUILD_NUMBER}
+                    docker run --rm -d --name ${APP_NAME}-test -p 2100:80 ${DOCKER_REPO}:${BUILD_NUMBER}
                     sleep 5
-                    curl -f http://localhost:8080 || exit 1
+                    curl -f http://localhost:2100 || exit 1
                     docker stop ${APP_NAME}-test
                 """
             }
@@ -51,7 +51,7 @@ pipeline {
                 sh """
                     docker stop ${APP_NAME} || true
                     docker rm ${APP_NAME} || true
-                    docker run -d --name ${APP_NAME} -p 80:80 ${DOCKER_REPO}:${BUILD_NUMBER}
+                    docker run -d --name ${APP_NAME} -p 2100:80 ${DOCKER_REPO}:${BUILD_NUMBER}
                 """
             }
         }

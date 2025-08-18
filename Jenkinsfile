@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        APP_NAME = "test_2"
+        APP_NAME = "test_3"
         DOCKER_REPO = "khiemvip7e/${APP_NAME}"
         DOCKER_CREDENTIALS = "docker-hub-credentials"
     }
@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage('Clone Code') {
             steps {
-                git branch: 'main', url: 'git@https://github.com/PHAMXUANKHIEM/test_2/tree/master/test_2', credentialsId: 'github-ssh'
+                git branch: 'main', url: 'git@github.com:PHAMXUANKHIEM/test_3, credentialsId: 'github-ssh'
             }
         }
 

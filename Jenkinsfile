@@ -7,12 +7,13 @@ pipeline {
         DOCKER_CREDENTIALS = "docker-hub-credentials"
     }
 
-	stage('Clone Code') {
-	    steps {
-		git branch: 'main',
-		    url: 'git@github.com:PHAMXUANKHIEM/test_3',
-		    credentialsId: 'github-ssh'
-	    }
+    stages {
+        stage('Clone Code') {
+            steps {
+                git branch: 'main',
+                    url: 'git@github.com:PHAMXUANKHIEM/test_3',
+                    credentialsId: 'github-ssh'
+            }
         }
 
         stage('Build Docker Image') {
